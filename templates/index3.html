@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Entry Management</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'login3/css/bootstrap.min.css' %}" type="text/css" />
+
+	<!-- Custom stlylesheet -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'login3/css/style.css' %}" type="text/css" />
+
+
+
+</head>
+
+
+
+
+<script>
+var n = "{{n}}";
+var amount = 0;
+var type2;
+function showLoading() {
+    document.getElementById('loadingmsg').style.display = 'block';
+	var num = document.getElementById('num').value;
+	var type = document.getElementById('val').value;
+	
+	
+	if(type.localeCompare("INR") == 0)
+	{
+	amount = num/n;
+	type2 = "USD";
+	}
+	else
+	{
+	amount = num*n;
+	type2 = "INR";
+	}
+	if(amount.toString().localeCompare("NaN")==0)
+	{
+	document.getElementById('loadingmsg').style.color = "red"
+	document.getElementById('loadingmsg').innerHTML = "Please enter number only"
+	}
+	else{
+	document.getElementById('loadingmsg').innerHTML = amount.toString()+" "+type2 ;
+	document.getElementById('loadingmsg').style.display = 'block';}
+    
+}
+</script>
+
+
+
+<body>
+
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+						<div class="booking-cta">
+							<h1>Converter</h1>
+							<p> Enter your details by selecting appropriate option
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-pull-7" on>
+					
+						<div class="booking-form">
+						
+						
+					
+								<div>
+					
+   
+
+    
+								
+							
+								<div class="form-btn">
+								<div class="row">
+								<div class="col-md-6">
+									<div class="form-group"><span class="form-label"> Enter value</span>
+										<input class="form-control" type="text" id ="num" pattern = [0-9]{0,} title="Please enter number only">
+									</div>
+								</div>
+								
+								<div class="col-md-6">
+								<div class="form-group"><span class="form-label"></span>
+									
+										<select class="form-control" name="val" id = "val">
+											<option value="INR">INR</option>
+											<option value="USD">USD</option>
+										</select>
+										<span class="select-arrow"></span>
+								
+								</div>
+								</div>
+								<div>
+								<div class="row">
+								<div class="col-md-6">
+								<div class="form-btn">
+									<button class="submit-btn" onclick = "showLoading()" >Convert</button>
+								</div>
+								
+								</div>
+								</div>
+								</div>
+								</div>
+								
+								
+								<h4><div id='loadingmsg' style='display: none;'>nil</div></h4>
+								
+								
+								
+								
+								
+								
+								</div>
+								</div>
+									
+					
+					
+						</div>
+					</div>
+			</div>
+			
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

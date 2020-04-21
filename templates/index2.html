@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Login</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'login2/css/bootstrap.min.css' %}" type="text/css" />
+
+	<!-- Custom stlylesheet -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'login2/css/style.css' %}" type="text/css" />
+
+
+
+</head>
+
+<body>
+<header class="default-header">
+				<div class="container">
+						<div class="header-top d-flex justify-content-between align-items-center">
+							
+							<div class="main-menubar d-flex align-items-center">
+								
+								<div class="menu-bar"><nav>
+								    <a href="..\">Home</a>
+								</nav></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+						<div class="booking-cta">
+							<h1>Make your reservation</h1>
+							<p> One stop site to find affordable tickets to the hall of entertainment.
+							    Book tickets to your favourite destinations at cheap and affordable price.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-pull-7">
+					
+						<div class="booking-form">
+						<p style="color:red">{{variable}}</p>
+							<form action="LoginQuery" method=post>
+							{% csrf_token %}
+								<div class="form-group">
+									<span class="form-label">User Id</span>
+									<input class="form-control" type="text" placeholder="Enter a userid" name="uid">
+								</div>
+								<div class="form-group">
+									<span class="form-label">Password</span>
+									<input class="form-control" type="password" placeholder="Enter a password" name="password">
+								</div>
+								
+								<div class="form-btn">
+									<input class="submit-btn" type=submit value="Login">
+								</div>
+								<div class="form-group">
+									<span class="form-label"><a href="signup">signup</a></span>
+								</div>	
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
